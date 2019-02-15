@@ -1,0 +1,37 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+#topBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 62px;
+  width: 100vw;
+  background-color: #24292e;
+}
+#topContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  h2 {
+  color: white;
+  }
+}
+#topLeft {
+  display: flex;
+  flex-direction: row;
+}
+#logo {
+  display: flex;
+  background-image: url(../img/logo.png);
+  background-size: cover;
+  align-self: center;
+  margin-left:16px;
+  width: 32px;
+  height: 32px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
