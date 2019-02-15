@@ -1,37 +1,148 @@
 body {
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 5500px;
+  font-family: sans-serif;
+  font-size: 12px;
+}
+a {
+  text-decoration: none;
 }
 #topBar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: 62px;
-  width: 100vw;
   background-color: #24292e;
-}
-#topContent {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  h2 {
-  color: white;
-  }
 }
 #topLeft {
   display: flex;
   flex-direction: row;
+  #logo {
+    display: flex;
+    background-image: url(../img/logo.png);
+    background-size: cover;
+    align-self: center;
+    margin-left:16px;
+    width: 32px;
+    height: 32px;
+  }
+  #topContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    h2 {
+    color: white;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: lighter;
+    }
+    #searchBar {
+      display: flex;
+      align-self: center;
+      margin-left: 10px;
+      width: 300px;
+      input {
+        border: none;
+        width: 100%;
+        border-radius: 3px;
+        padding: 7px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
+        background-position: right 8px center;
+        background-repeat: no-repeat;
+        background-color: rgba(255,255,255,0.125);
+      }
+    }
+  }
 }
-#logo {
+#topRight {
   display: flex;
-  background-image: url(../img/logo.png);
-  background-size: cover;
-  align-self: center;
-  margin-left:16px;
-  width: 32px;
-  height: 32px;
+  flex-direction: row;
+  color: white;
+  font-size: 16px;
+  p {
+    margin-right: 20px;
+  }
 }
-body {
+#main {
+  display: flex;
+  flex-direction: row;
+  #sideBar {
+    height: 100vh;
+    width: 349px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+  #recent {
+    background-color: #f6f8fa;
+    height: 2000px;
+  }
+  #discover {
+    background-color: #f6f8fa;
+    width: 350px;
+    #welcome {
+      border: 1px solid blue;
+      border-radius: 3px;
+      padding: 0 10px 0 10px;
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+
+.repoTeaser {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+
+  .repoName {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .repoInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+#repositories {
+  margin: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  #discover, #topContent {
+    display: none;
+  }
+  #sideBar {
+    position: relative;
+  }
+}
+
+@media screen and (max-width: 1011px) and (min-width: 768px) {
+  #discover {
+    display: none;
+  }
+  #recent {
+    width: 66.66667%;
+  }
+  #sideBar, #discover {
+    width: 349px;
+  }
+}
+
+@media screen and (min-width: 1012px) {
+  #recent {
+    width: 50%;
+  }
 }
