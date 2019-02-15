@@ -33,6 +33,9 @@ a {
   width: 32px;
   height: 32px;
 }
+#topLeft #logo:hover {
+  cursor: pointer;
+}
 #topLeft #topContent {
   display: flex;
   flex-direction: row;
@@ -44,6 +47,10 @@ a {
   margin-left: 10px;
   font-size: 14px;
   font-weight: lighter;
+}
+#topLeft #topContent h2:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.75);
 }
 #topLeft #topContent #searchBar {
   display: flex;
@@ -74,6 +81,10 @@ a {
 #topRight p {
   margin-right: 20px;
 }
+#topRight p:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.75);
+}
 
 #main {
   display: flex;
@@ -81,7 +92,9 @@ a {
 }
 #main #sideBar {
   height: 100vh;
-  width: 349px;
+  width: 33vw;
+  max-width: 350px;
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -97,10 +110,94 @@ a {
 #main #discover #welcome {
   border: 1px solid blue;
   border-radius: 3px;
+  margin-top: 40px;
   padding: 0 10px 0 10px;
 }
 #main #discover #welcome p {
   font-size: 12px;
+}
+
+#hello-world-guide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 95%;
+  margin: 2.5%;
+  height: 350px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background-image: linear-gradient(rgba(0, 90, 150, 0.3), rgba(255, 255, 255, 0));
+}
+
+.summary {
+  margin-top: 30px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profPic {
+  background-image: url(../img/avi.png);
+  background-size: cover;
+  width: 32px;
+  height: 32px;
+  margin-right: 20px;
+}
+
+.updateContent {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  padding-left: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  width: 90%;
+}
+
+.exit {
+  display: flex;
+  justify-content: flex-end;
+  margin: -40px 30px;
+}
+.exit:hover {
+  cursor: pointer;
+}
+
+#guideText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#guideText .buttons {
+  margin: 20px;
+}
+
+#sideBarInline {
+  display: none !important;
+  display: flex;
+  height: 200px;
+  width: 95%;
+  margin: 2.5%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background-color: white !important;
+}
+#sideBarInline .repositories {
+  width: 100%;
+}
+#sideBarInline .repositories .repoSearch {
+  width: 100%;
+}
+#sideBarInline .repositories .repoSearch input {
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  padding: 10px;
+}
+#sideBarInline .repositories .repoSearch input::placeholder {
+  color: rgba(0, 0, 0, 0.25);
 }
 
 .repoTeaser {
@@ -119,17 +216,21 @@ a {
   justify-content: flex-start;
 }
 
-#repositories {
+.repositories {
   margin: 20px;
 }
 
 @media screen and (max-width: 768px) {
-  #discover, #topContent {
-    display: none;
+  #discover, #topContent, #sideBar {
+    display: none !important;
   }
 
-  #sideBar {
-    position: relative;
+  #recent {
+    width: 100%;
+  }
+
+  #sideBarInline {
+    display: flex !important;
   }
 }
 @media screen and (max-width: 1011px) and (min-width: 768px) {

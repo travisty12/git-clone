@@ -28,6 +28,9 @@ a {
     margin-left:16px;
     width: 32px;
     height: 32px;
+    &:hover {
+      cursor: pointer;
+    }
   }
   #topContent {
     display: flex;
@@ -35,10 +38,14 @@ a {
     justify-content: flex-start;
     align-items: center;
     h2 {
-    color: white;
-    margin-left: 10px;
-    font-size: 14px;
-    font-weight: lighter;
+      color: white;
+      margin-left: 10px;
+      font-size: 14px;
+      font-weight: lighter;
+      &:hover {
+        cursor: pointer;
+        color: rgba(255,255,255,0.75);
+      }
     }
     #searchBar {
       display: flex;
@@ -68,6 +75,10 @@ a {
   font-size: 16px;
   p {
     margin-right: 20px;
+    &:hover {
+      cursor: pointer;
+      color: rgba(255,255,255,0.75);
+    }
   }
 }
 #main {
@@ -75,7 +86,9 @@ a {
   flex-direction: row;
   #sideBar {
     height: 100vh;
-    width: 349px;
+    width: 33vw;
+    max-width: 350px;
+    border-right: 1px solid rgba(0,0,0,0.125);
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -90,6 +103,7 @@ a {
     #welcome {
       border: 1px solid blue;
       border-radius: 3px;
+      margin-top: 40px;
       padding: 0 10px 0 10px;
       p {
         font-size: 12px;
@@ -97,7 +111,84 @@ a {
     }
   }
 }
+#hello-world-guide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 95%;
+  margin: 2.5%;
+  height: 350px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background-image: linear-gradient(rgba(0,90,150,0.3),rgba(255,255,255,0));
+}
+.summary {
+  margin-top: 30px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.profPic {
+  background-image: url(../img/avi.png);
+  background-size: cover;
+  width: 32px;
+  height: 32px;
+  margin-right: 20px;
+}
+.updateContent {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  padding-left: 20px;
+  border: 1px solid rgba(0,0,0,0.25);
+  border-radius: 3px;
+  width: 90%;
+}
 
+.exit {
+  display: flex;
+  justify-content: flex-end;
+  margin: -40px 30px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#guideText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .buttons {
+    margin: 20px;
+  }
+}
+#sideBarInline {
+  display: none !important;
+  display: flex;
+  height: 200px;
+  width: 95%;
+  margin: 2.5%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background-color: white !important;
+  .repositories {
+    width: 100%;
+    .repoSearch {
+      width: 100%;
+      input {
+        width: 100%;
+        border: 1px solid lightgrey;
+        border-radius: 2px;
+        padding: 10px;
+        &::placeholder {
+          color: rgba(0,0,0,0.25);
+        }
+      }
+    }
+  }
+}
 
 .repoTeaser {
   display: flex;
@@ -116,16 +207,19 @@ a {
   }
 }
 
-#repositories {
+.repositories {
   margin: 20px;
 }
 
 @media screen and (max-width: 768px) {
-  #discover, #topContent {
-    display: none;
+  #discover, #topContent, #sideBar {
+    display: none !important;
   }
-  #sideBar {
-    position: relative;
+  #recent {
+    width: 100%;
+  }
+  #sideBarInline {
+    display: flex !important;
   }
 }
 
