@@ -6,11 +6,25 @@
 
 ## Description
 
-* _Attempt at recreating GitHub's main page_
+#### _Attempt at recreating GitHub's main page_
 
-## Specs
+* _The site mimics GitHub's aesthetic and responsiveness_
 
+* _Original dekstop view:_
 
+![alt text](img/git.png)
+
+* _Original mobile view:_
+
+![alt text](img/git-mobile.png)
+
+* _Cloned desktop view:_
+
+![alt text](img/clone.png)
+
+* _Cloned mobile view:_
+
+![alt text](img/clone-mobile.png)
 
 
 
