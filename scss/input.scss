@@ -3,12 +3,13 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  height: 5500px;
+  height: 1500px;
   font-family: sans-serif;
   font-size: 12px;
 }
 a {
   text-decoration: none;
+  color: rgb(3,102,214);
 }
 #topBar {
   display: flex;
@@ -95,12 +96,19 @@ a {
   }
   #recent {
     background-color: #f6f8fa;
-    height: 2000px;
+    width: 34vw;
+    min-width: calc(100vw - 700px);
+    height: 1400px;
   }
+
+
   #discover {
     background-color: #f6f8fa;
-    width: 350px;
+    width: 33vw;
+    height: 1400px;
+    max-width: 350px;
     #welcome {
+      margin: 30px;
       border: 1px solid blue;
       border-radius: 3px;
       margin-top: 40px;
@@ -110,6 +118,23 @@ a {
       }
     }
   }
+}
+
+.repoInfo {
+  display: flex;
+  align-items: center;
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: blue;
+}
+.star {
+  width: 12px;
+  height: 12px;
+  background-image: url(../img/star.png);
+  background-size: cover;
 }
 #hello-world-guide {
   display: flex;
@@ -144,6 +169,7 @@ a {
   border: 1px solid rgba(0,0,0,0.25);
   border-radius: 3px;
   width: 90%;
+  background-color: white;
 }
 
 .exit {
@@ -164,32 +190,42 @@ a {
     margin: 20px;
   }
 }
+.repoSearch {
+  width: 100%;
+  input {
+    width: 95%;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    padding: 10px;
+    &::placeholder {
+      color: rgba(0,0,0,0.25);
+    }
+  }
+}
 #sideBarInline {
   display: none !important;
   display: flex;
-  height: 200px;
+  height: 300px;
   width: 95%;
   margin: 2.5%;
   border: 1px solid lightgrey;
   border-radius: 3px;
   background-color: white !important;
   .repositories {
+    display: flex;
     width: 100%;
-    .repoSearch {
-      width: 100%;
-      input {
-        width: 100%;
-        border: 1px solid lightgrey;
-        border-radius: 2px;
-        padding: 10px;
-        &::placeholder {
-          color: rgba(0,0,0,0.25);
-        }
-      }
+    flex-direction: column;
+    .repoList {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
     }
   }
 }
-
+.repo {
+  display: flex;
+  flex-direction: row;
+}
 .repoTeaser {
   display: flex;
   flex-direction: column;
@@ -211,12 +247,19 @@ a {
   margin: 20px;
 }
 
+#moreBtn {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
-  #discover, #topContent, #sideBar {
+  #discover, #topContent, #sideBar, #addBtn, #profileBtn {
     display: none !important;
   }
   #recent {
-    width: 100%;
+    width: 100vw !important;
+  }
+  #moreBtn {
+    display: flex;
   }
   #sideBarInline {
     display: flex !important;
@@ -228,7 +271,7 @@ a {
     display: none;
   }
   #recent {
-    width: 66.66667%;
+    width: 66.66667vw !important;
   }
   #sideBar, #discover {
     width: 349px;

@@ -3,13 +3,14 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  height: 5500px;
+  height: 1500px;
   font-family: sans-serif;
   font-size: 12px;
 }
 
 a {
   text-decoration: none;
+  color: #0366d6;
 }
 
 #topBar {
@@ -101,13 +102,18 @@ a {
 }
 #main #recent {
   background-color: #f6f8fa;
-  height: 2000px;
+  width: 34vw;
+  min-width: calc(100vw - 700px);
+  height: 1400px;
 }
 #main #discover {
   background-color: #f6f8fa;
-  width: 350px;
+  width: 33vw;
+  height: 1400px;
+  max-width: 350px;
 }
 #main #discover #welcome {
+  margin: 30px;
   border: 1px solid blue;
   border-radius: 3px;
   margin-top: 40px;
@@ -115,6 +121,25 @@ a {
 }
 #main #discover #welcome p {
   font-size: 12px;
+}
+
+.repoInfo {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: blue;
+}
+
+.star {
+  width: 12px;
+  height: 12px;
+  background-image: url(../img/star.png);
+  background-size: cover;
 }
 
 #hello-world-guide {
@@ -153,6 +178,7 @@ a {
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 3px;
   width: 90%;
+  background-color: white;
 }
 
 .exit {
@@ -174,10 +200,23 @@ a {
   margin: 20px;
 }
 
+.repoSearch {
+  width: 100%;
+}
+.repoSearch input {
+  width: 95%;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  padding: 10px;
+}
+.repoSearch input::placeholder {
+  color: rgba(0, 0, 0, 0.25);
+}
+
 #sideBarInline {
   display: none !important;
   display: flex;
-  height: 200px;
+  height: 300px;
   width: 95%;
   margin: 2.5%;
   border: 1px solid lightgrey;
@@ -185,19 +224,19 @@ a {
   background-color: white !important;
 }
 #sideBarInline .repositories {
+  display: flex;
   width: 100%;
+  flex-direction: column;
 }
-#sideBarInline .repositories .repoSearch {
-  width: 100%;
+#sideBarInline .repositories .repoList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-#sideBarInline .repositories .repoSearch input {
-  width: 100%;
-  border: 1px solid lightgrey;
-  border-radius: 2px;
-  padding: 10px;
-}
-#sideBarInline .repositories .repoSearch input::placeholder {
-  color: rgba(0, 0, 0, 0.25);
+
+.repo {
+  display: flex;
+  flex-direction: row;
 }
 
 .repoTeaser {
@@ -220,13 +259,21 @@ a {
   margin: 20px;
 }
 
+#moreBtn {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
-  #discover, #topContent, #sideBar {
+  #discover, #topContent, #sideBar, #addBtn, #profileBtn {
     display: none !important;
   }
 
   #recent {
-    width: 100%;
+    width: 100vw !important;
+  }
+
+  #moreBtn {
+    display: flex;
   }
 
   #sideBarInline {
@@ -239,7 +286,7 @@ a {
   }
 
   #recent {
-    width: 66.66667%;
+    width: 66.66667vw !important;
   }
 
   #sideBar, #discover {
