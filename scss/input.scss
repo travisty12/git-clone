@@ -1,9 +1,27 @@
-body {
-  padding: 0;
-  margin: 0;
+@mixin size($width,$height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin cushion($pad,$marg) {
+  padding: $pad;
+  margin: $marg;
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flexCol {
   display: flex;
   flex-direction: column;
-  height: 1500px;
+}
+
+body {
+  @include cushion(0,0);
+  @include flexCol;
+  @include size(auto,1500px);
   font-family: sans-serif;
   font-size: 12px;
 }
@@ -12,30 +30,26 @@ a {
   color: rgb(3,102,214);
 }
 #topBar {
-  display: flex;
-  flex-direction: row;
+  @include flexRow;
   justify-content: space-between;
   height: 62px;
   background-color: #24292e;
 }
 #topLeft {
-  display: flex;
-  flex-direction: row;
+  @include flexRow;
   #logo {
     display: flex;
     background-image: url(../img/logo.png);
     background-size: cover;
     align-self: center;
     margin-left:16px;
-    width: 32px;
-    height: 32px;
+    @include size(32px,32px);
     &:hover {
       cursor: pointer;
     }
   }
   #topContent {
-    display: flex;
-    flex-direction: row;
+    @include flexRow;
     justify-content: flex-start;
     align-items: center;
     h2 {
@@ -70,8 +84,7 @@ a {
   }
 }
 #topRight {
-  display: flex;
-  flex-direction: row;
+  @include flexRow;
   color: white;
   font-size: 16px;
   p {
@@ -83,11 +96,9 @@ a {
   }
 }
 #main {
-  display: flex;
-  flex-direction: row;
+  @include flexRow;
   #sideBar {
-    height: 100vh;
-    width: 33vw;
+    @include size(33vw,100vh);
     max-width: 350px;
     border-right: 1px solid rgba(0,0,0,0.125);
     position: -webkit-sticky;
@@ -96,16 +107,14 @@ a {
   }
   #recent {
     background-color: #f6f8fa;
-    width: 34vw;
     min-width: calc(100vw - 700px);
-    height: 1400px;
+    @include size(34vw,1400px);
   }
 
 
   #discover {
     background-color: #f6f8fa;
-    width: 33vw;
-    height: 1400px;
+    @include size(33vw,1400px);
     max-width: 350px;
     #welcome {
       margin: 30px;
@@ -120,30 +129,42 @@ a {
   }
 }
 
+#read {
+  @include size(30vmin,6vmin);
+  margin-right: 20px;
+  background-color: rgba(40,167,69,1);
+  font-size: 1.15vmax;
+  color: white;
+  border-radius: 3px;
+}
+
+#start {
+  @include size(30vmin,6vmin);
+  background-color: white;
+  font-size: 1.15vmax;
+  border-radius: 3px;
+}
+
 .repoInfo {
   display: flex;
   align-items: center;
 }
 .dot {
-  width: 12px;
-  height: 12px;
+  @include size(12px,12px);
   border-radius: 6px;
   background-color: blue;
 }
 .star {
-  width: 12px;
-  height: 12px;
+  @include size(12px,12px);
   background-image: url(../img/star.png);
   background-size: cover;
 }
 #hello-world-guide {
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  @include flexCol;
   justify-content: space-around;
-  width: 95%;
+  @include size(95%,350px);
   margin: 2.5%;
-  height: 350px;
   border: 1px solid lightgrey;
   border-radius: 3px;
   background-image: linear-gradient(rgba(0,90,150,0.3),rgba(255,255,255,0));
@@ -158,13 +179,11 @@ a {
 .profPic {
   background-image: url(../img/avi.png);
   background-size: cover;
-  width: 32px;
-  height: 32px;
+  @include size(32px,32px);
   margin-right: 20px;
 }
 .updateContent {
-  display: flex;
-  flex-direction: column;
+  @include flexCol;
   margin-left: 5%;
   padding-left: 20px;
   border: 1px solid rgba(0,0,0,0.25);
@@ -183,8 +202,7 @@ a {
 }
 
 #guideText {
-  display: flex;
-  flex-direction: column;
+  @include flexCol;
   justify-content: center;
   align-items: center;
   .buttons {
@@ -206,40 +224,33 @@ a {
 #sideBarInline {
   display: none !important;
   display: flex;
-  height: 300px;
-  width: 95%;
+  @include size(95%,300px);
   margin: 2.5%;
   border: 1px solid lightgrey;
   border-radius: 3px;
   background-color: white !important;
   .repositories {
-    display: flex;
+    @include flexCol;
     width: 100%;
-    flex-direction: column;
     .repoList {
-      display: flex;
-      flex-direction: column;
+      @include flexCol;
       flex-wrap: wrap;
     }
   }
 }
 .repo {
-  display: flex;
-  flex-direction: row;
+  @include flexRow;
 }
 .repoTeaser {
-  display: flex;
-  flex-direction: column;
+  @include flexCol;
   justify-content: space-between;
 
   .repoName {
-    display: flex;
-    flex-direction: column;
+    @include flexCol;
     justify-content: flex-start;
   }
   .repoInfo {
-    display: flex;
-    flex-direction: row;
+    @include flexRow;
     justify-content: flex-start;
   }
 }

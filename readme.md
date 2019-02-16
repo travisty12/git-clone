@@ -33,6 +33,7 @@
 * _SMASH that follow button at https://www.github.com/travisty12_
 * _View a live site at https://travisty12.github.io/git-clone/_
 * _Or, clone this repository to alter code and view the result in your browser_
+* _To view changes to scss file, run "> sass --watch scss/input.scss:css/output.css" in the command line_
 
 ## Known Bugs
 
